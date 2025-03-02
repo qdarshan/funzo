@@ -1,1 +1,46 @@
 @import "tailwindcss";
+@import "./styles/fonts.css";
+@import "./styles/pattern.css";
+
+@theme {
+  --font-display: "LogoFont", "sans-serif";
+  --font-primary: "primary", "sans-serif";
+  --color-primary: #fee440;
+  --color-secondary: #f5f5f5;
+  --color-accent: #fee440;
+  --color-background: #f5f5f5;
+  --color-text: #222;
+}
+
+@layer {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+}
+
+@keyframes colorChange {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    background-color: oklch(0.905 0.182 98.111);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    background-color: oklch(0.21 0.006 285.885);
+  }
+}
+
+.animate-color-change {
+  animation: colorChange 1s infinite alternate;
+}
+
+:root {
+  font-family: var(--font-primary), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
